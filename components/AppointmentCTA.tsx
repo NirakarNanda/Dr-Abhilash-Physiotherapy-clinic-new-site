@@ -14,7 +14,7 @@ export function AppointmentCTA() {
         }}
         aria-hidden="true"
       />
-      <div className="relative mx-auto max-w-content px-6 py-28 text-center md:px-16 md:py-44">
+      <div className="relative mx-auto max-w-content px-6 py-16 text-center md:px-16 md:py-24">
         <Reveal>
           <p className="text-[11px] font-display font-semibold uppercase tracking-label text-accent">
             Make an appointment
@@ -44,7 +44,7 @@ export function AppointmentCTA() {
             </a>
             <a
               href="#visit"
-              className="rounded-full border border-white/20 px-8 py-4 text-sm font-display font-bold uppercase tracking-label text-ivory transition-colors hover:border-accent hover:text-accent"
+              className="rounded-full border border-line/20 px-8 py-4 text-sm font-display font-bold uppercase tracking-label text-ivory transition-colors hover:border-accent hover:text-accent"
             >
               Visit the clinic
             </a>

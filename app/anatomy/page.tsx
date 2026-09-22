@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { AnatomyNavbar } from "@/components/navigation/AnatomyNavbar";
 import { AnatomyExperience } from "@/components/sections/AnatomyExperience";
 
@@ -11,11 +10,11 @@ export const metadata: Metadata = {
 
 export default function AnatomyPage() {
   return (
-    <ThemeProvider>
+    <>
       <AnatomyNavbar />
       <main>
         <AnatomyExperience />
       </main>
-    </ThemeProvider>
+    </>
   );
 }

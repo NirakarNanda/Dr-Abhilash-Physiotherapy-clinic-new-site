@@ -5,6 +5,36 @@
 :root {
   color-scheme: dark;
 
+  /* Site-wide theme tokens for the clinic pages (Tailwind coal/ivory/
+     accent/line map to these). Dark is the default identity; the
+     [data-theme="light"] block below swaps them to the warm beige
+     treatment shared with the /anatomy chapter. Values are RGB triplets
+     so Tailwind's <alpha-value> opacity modifiers keep working. */
+  --site-bg: 10 11 13;
+  --site-bg-soft: 16 18 20;
+  --site-card: 20 23 26;
+  --site-ink: 244 241 234;
+  --site-ink-muted: 180 176 166;
+  --site-ink-faint: 142 139 131;
+  --site-accent: 168 183 161;
+  --site-line: 255 255 255;
+  /* Hero 3D backdrop washes (radial gradients). */
+  --site-glow: radial-gradient(
+    ellipse 60% 50% at 50% 42%,
+    rgba(168, 183, 161, 0.1),
+    transparent 70%
+  );
+  --site-vignette: radial-gradient(
+    ellipse 120% 100% at 50% 50%,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  --site-quote-glow: radial-gradient(
+    ellipse 55% 60% at 50% 50%,
+    rgba(168, 183, 161, 0.07),
+    transparent 70%
+  );
+
   /* Theme tokens for the /anatomy experience. Dark (near-black) is the
      default identity; [data-theme="light"] below swaps the whole chapter
      to a light beige treatment. Components reference these via
@@ -64,6 +94,31 @@
   --theme-credit: rgba(130, 119, 100, 0.9);
   --theme-credit-hover: #4a443a;
   --theme-attribution-link: #4a443a;
+
+  /* Clinic pages follow the same warm beige family in light mode. */
+  --site-bg: 226 215 189;
+  --site-bg-soft: 219 207 179;
+  --site-card: 236 228 207;
+  --site-ink: 32 28 21;
+  --site-ink-muted: 95 87 73;
+  --site-ink-faint: 122 111 92;
+  --site-accent: 92 110 88;
+  --site-line: 32 28 21;
+  --site-glow: radial-gradient(
+    ellipse 60% 50% at 50% 42%,
+    rgba(143, 160, 138, 0.18),
+    transparent 70%
+  );
+  --site-vignette: radial-gradient(
+    ellipse 120% 100% at 50% 50%,
+    transparent 55%,
+    rgba(120, 100, 70, 0.28) 100%
+  );
+  --site-quote-glow: radial-gradient(
+    ellipse 55% 60% at 50% 50%,
+    rgba(143, 160, 138, 0.14),
+    transparent 70%
+  );
 }
 
 /* Exploded-label legibility halo — follows the theme so labels stay

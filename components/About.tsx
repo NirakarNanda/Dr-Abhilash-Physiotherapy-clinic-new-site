@@ -22,7 +22,7 @@ const CREDENTIALS = [
 export function About() {
   return (
     <section id="about" className="scroll-mt-20 bg-coal">
-      <div className="mx-auto max-w-content px-6 py-24 md:px-16 md:py-36">
+      <div className="mx-auto max-w-content px-6 py-16 md:px-16 md:py-24">
         <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <div className="lg:sticky lg:top-28">
             <SectionHeading
@@ -35,7 +35,7 @@ export function About() {
               }
             />
             <Reveal delay={0.15}>
-              <div className="relative mt-10 aspect-square max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-coal-card">
+              <div className="relative mt-10 aspect-square max-w-sm overflow-hidden rounded-3xl border border-line/10 bg-coal-card">
                 <Image
                   src="/logo-emblem.png"
                   alt="Bijayalakshmi Physiotherapy Clinic emblem"
@@ -58,7 +58,7 @@ export function About() {
             </Reveal>
           </div>
 
-          <div className="flex flex-col gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10">
+          <div className="flex flex-col gap-px overflow-hidden rounded-2xl border border-line/10 bg-line/10">
             <div className="bg-coal-card p-8 md:p-10">
               <Reveal>
                 <p className="text-[11px] font-display font-semibold uppercase tracking-label text-accent">

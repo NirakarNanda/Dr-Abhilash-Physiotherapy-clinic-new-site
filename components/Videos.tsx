@@ -14,7 +14,7 @@ function VideoCard({ video, index }: { video: VideoEntry; index: number }) {
   const mp4 = !embed && isDirectVideo(video.url);
   return (
     <Reveal delay={0.07 * (index % 3)}>
-      <article className="group overflow-hidden rounded-2xl border border-white/10 bg-coal-card transition-colors duration-500 hover:border-accent/30">
+      <article className="group overflow-hidden rounded-2xl border border-line/10 bg-coal-card transition-colors duration-500 hover:border-accent/30">
         <div className="relative aspect-video bg-black">
           {embed ? (
             <iframe
@@ -78,7 +78,7 @@ function ComingSoon() {
   return (
     <div className="mt-14 md:mt-20">
       <Reveal>
-        <div className="relative overflow-hidden rounded-3xl border border-dashed border-white/15 bg-coal-card/50 px-8 py-16 text-center md:py-24">
+        <div className="relative overflow-hidden rounded-3xl border border-dashed border-line/15 bg-coal-card/50 px-8 py-16 text-center md:py-24">
           <div
             className="pointer-events-none absolute inset-0"
             style={{
@@ -92,7 +92,7 @@ function ComingSoon() {
             {[0, 1, 2].map((i) => (
               <span
                 key={i}
-                className={`block aspect-video w-full rounded-lg border border-white/10 bg-black/40 ${
+                className={`block aspect-video w-full rounded-lg border border-line/10 bg-black/40 ${
                   i === 1 ? "border-accent/30" : ""
                 }`}
               >
@@ -101,7 +101,7 @@ function ComingSoon() {
                     className={`flex h-12 w-12 items-center justify-center rounded-full border ${
                       i === 1
                         ? "border-accent/50 bg-accent/10"
-                        : "border-white/15 bg-white/5"
+                        : "border-line/15 bg-line/5"
                     }`}
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className={i === 1 ? "ml-0.5 text-accent" : "ml-0.5 text-ivory-faint"} aria-hidden="true">
@@ -133,7 +133,7 @@ function ComingSoon() {
 export function Videos() {
   return (
     <section id="videos" className="scroll-mt-20 bg-coal">
-      <div className="mx-auto max-w-content px-6 py-24 md:px-16 md:py-36">
+      <div className="mx-auto max-w-content px-6 py-16 md:px-16 md:py-24">
         <SectionHeading
           eyebrow={VIDEOS_COPY.eyebrow}
           title={

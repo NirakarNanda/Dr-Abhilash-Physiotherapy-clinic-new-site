@@ -6,6 +6,7 @@ import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { useReducedMotion } from "@/components/anatomy/useReducedMotion";
+import { useTheme } from "@/components/theme/ThemeProvider";
 import { CLINIC } from "@/content/site";
 
 const MODEL_PATH = "/models/skeleton.glb";
@@ -17,35 +18,57 @@ function withDraco(loader: GLTFLoader) {
   loader.setDRACOLoader(dracoLoader);
 }
 
-const ivoryMaterial = new THREE.MeshStandardMaterial({
-  color: new THREE.Color("#EFE9DC"),
-  roughness: 0.55,
-  metalness: 0.02,
-});
+const BONE_DARK = "#EFE9DC";
+const BONE_LIGHT = "#6E6154"; // warm bronze-gray — reads on the beige treatment
 
 function SkeletonRig({
   progressRef,
   reduced,
   onReady,
+  theme,
 }: {
   progressRef: { current: number };
   reduced: boolean;
   onReady: () => void;
+  theme: "dark" | "light";
 }) {
   const { scene } = useLoader(GLTFLoader, MODEL_PATH, withDraco);
   const { camera, size } = useThree();
+
+  const material = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({
+        color: new THREE.Color(BONE_DARK),
+        roughness: 0.55,
+        metalness: 0.02,
+      }),
+    []
+  );
 
   const group = useMemo(() => {
     const g = scene.clone(true);
     g.traverse((node) => {
       if (node instanceof THREE.Mesh) {
-        node.material = ivoryMaterial;
+        node.material = material;
         node.castShadow = false;
         node.receiveShadow = false;
       }
     });
     return g;
-  }, [scene]);
+  }, [scene, material]);
+
+  /* World-space framing: aim at the model's true center (the GLB's local
+     origin is not guaranteed to be centered) and fit ~80% of frame height. */
+  const frame = useMemo(() => {
+    const box = new THREE.Box3().setFromObject(group);
+    const center = box.getCenter(new THREE.Vector3());
+    const dims = box.getSize(new THREE.Vector3());
+    return { center, height: Math.max(dims.y, 0.001), width: Math.max(dims.x, 0.001) };
+  }, [group]);
+
+  useEffect(() => {
+    material.color.set(theme === "light" ? BONE_LIGHT : BONE_DARK);
+  }, [theme, material]);
 
   useEffect(() => {
     onReady();
@@ -55,15 +78,26 @@ function SkeletonRig({
     const t = state.clock.elapsedTime;
     const p = progressRef.current;
     const aspect = size.width / Math.max(1, size.height);
-    const narrow = aspect < 0.85 ? 1.5 : aspect < 1.25 ? 1.18 : 1;
-    const dist = (reduced ? 4.4 : THREE.MathUtils.lerp(4.7, 3.0, p)) * narrow;
+    const narrow = aspect < 0.9;
+    const halfFov = THREE.MathUtils.degToRad(32) / 2;
+    const fitDist =
+      Math.max(
+        frame.height / (2 * Math.tan(halfFov)),
+        frame.width / (2 * Math.tan(halfFov) * aspect)
+      ) / 0.8;
+    const base = fitDist * (narrow ? 1.3 : 1);
+    const dist = reduced ? base : THREE.MathUtils.lerp(base, base * 0.74, p);
+    // Desktop: park the skeleton right-of-frame so the headline owns the left.
+    const lookX = narrow ? 0 : -dist * Math.tan(halfFov) * aspect * 0.24;
+    const cy = frame.center.y;
     camera.position.set(
-      Math.sin(p * 0.7) * 0.5,
-      THREE.MathUtils.lerp(1.2, 0.95, reduced ? 0 : p),
+      lookX + (reduced ? 0 : Math.sin(p * 0.7) * 0.35),
+      cy + (reduced ? 0.1 : THREE.MathUtils.lerp(0.12, 0, p)),
       dist
     );
-    camera.lookAt(0, 0.85, 0);
-    group.rotation.y = (reduced ? 0.55 : t * 0.12) + (reduced ? 0 : p * Math.PI * 1.25);
+    camera.lookAt(lookX, cy, 0);
+    group.rotation.y =
+      (reduced ? 0.5 : t * 0.12) + (reduced ? 0 : p * Math.PI * 0.9);
   });
 
   return <primitive object={group} />;
@@ -76,6 +110,7 @@ export function Hero3D() {
   const progressRef = useRef(0);
   const [ready, setReady] = useState(false);
   const reduced = useReducedMotion();
+  const { theme } = useTheme();
   const onReady = useCallback(() => setReady(true), []);
 
   useEffect(() => {
@@ -116,23 +151,17 @@ export function Hero3D() {
   }, [reduced]);
 
   return (
-    <section ref={sectionRef} id="top" className="relative" style={{ height: "250vh" }}>
+    <section ref={sectionRef} id="top" className="relative" style={{ height: "170vh" }}>
       <div className="grain sticky top-0 overflow-hidden viewport-full bg-coal">
         {/* ambient backdrop */}
         <div
           className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 50% at 50% 42%, rgba(168,183,161,0.10), transparent 70%)",
-          }}
+          style={{ background: "var(--site-glow)" }}
           aria-hidden="true"
         />
         <div
           className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 120% 100% at 50% 50%, transparent 55%, rgba(0,0,0,0.55) 100%)",
-          }}
+          style={{ background: "var(--site-vignette)" }}
           aria-hidden="true"
         />
 
@@ -147,7 +176,7 @@ export function Hero3D() {
             <directionalLight position={[-4, 2.5, -3]} intensity={0.7} color="#a8b7a1" />
             <directionalLight position={[0, -1, 5]} intensity={0.25} color="#cdd6c8" />
             <Suspense fallback={null}>
-              <SkeletonRig progressRef={progressRef} reduced={reduced} onReady={onReady} />
+              <SkeletonRig progressRef={progressRef} reduced={reduced} onReady={onReady} theme={theme} />
             </Suspense>
           </Canvas>
         </div>
@@ -184,7 +213,7 @@ export function Hero3D() {
               </a>
               <a
                 href="/anatomy"
-                className="rounded-full border border-white/20 px-7 py-3.5 text-xs font-display font-bold uppercase tracking-label text-ivory transition-colors hover:border-accent hover:text-accent"
+                className="rounded-full border border-line/20 px-7 py-3.5 text-xs font-display font-bold uppercase tracking-label text-ivory transition-colors hover:border-accent hover:text-accent"
               >
                 Explore 3D anatomy
               </a>
@@ -209,7 +238,7 @@ export function Hero3D() {
           <p className="text-[10px] font-display uppercase tracking-label text-ivory-faint">
             Scroll to explore
           </p>
-          <span className="block h-10 w-px overflow-hidden bg-white/10">
+          <span className="block h-10 w-px overflow-hidden bg-line/10">
             <span className="animate-scroll-hint block h-1/4 w-px bg-accent" />
           </span>
         </div>

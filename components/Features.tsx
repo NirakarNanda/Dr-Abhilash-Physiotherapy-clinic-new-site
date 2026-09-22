@@ -39,8 +39,8 @@ function FeatureIcon({ index }: { index: number }) {
 
 export function Features() {
   return (
-    <section id="treatments" className="scroll-mt-20 border-y border-white/10 bg-coal-soft/40">
-      <div className="mx-auto max-w-content px-6 py-24 md:px-16 md:py-36">
+    <section id="treatments" className="scroll-mt-20 border-y border-line/10 bg-coal-soft/40">
+      <div className="mx-auto max-w-content px-6 py-16 md:px-16 md:py-24">
         <SectionHeading
           eyebrow="Key features"
           title={
@@ -53,7 +53,7 @@ export function Features() {
         <div className="mt-14 grid gap-5 sm:grid-cols-2 md:mt-20 lg:grid-cols-3">
           {FEATURES.map((f, i) => (
             <Reveal key={f.name} delay={0.06 * (i % 3)}>
-              <article className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-coal-card p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-accent/40">
+              <article className="group relative h-full overflow-hidden rounded-2xl border border-line/10 bg-coal-card p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-accent/40">
                 <div
                   className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
                   style={{ background: "rgba(168,183,161,0.18)" }}

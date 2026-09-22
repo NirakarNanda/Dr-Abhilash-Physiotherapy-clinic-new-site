@@ -7,13 +7,10 @@ export function Statement() {
     <section className="relative overflow-hidden bg-coal">
       <div
         className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 55% 60% at 50% 50%, rgba(168,183,161,0.07), transparent 70%)",
-        }}
+        style={{ background: "var(--site-quote-glow)" }}
         aria-hidden="true"
       />
-      <div className="relative mx-auto max-w-content px-6 py-28 md:px-16 md:py-44">
+      <div className="relative mx-auto max-w-content px-6 py-16 md:px-16 md:py-24">
         <Reveal>
           <p className="text-center text-[11px] font-display font-semibold uppercase tracking-label text-accent">
             Our promise

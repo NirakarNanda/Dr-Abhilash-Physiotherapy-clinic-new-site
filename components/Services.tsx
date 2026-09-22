@@ -10,7 +10,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       className={`group relative flex flex-col overflow-hidden rounded-2xl border p-8 transition-all duration-500 hover:-translate-y-1.5 md:p-10 ${
         featured
           ? "border-accent/40 bg-gradient-to-br from-coal-card to-[#1b211c]"
-          : "border-white/10 bg-coal-card hover:border-accent/30"
+          : "border-line/10 bg-coal-card hover:border-accent/30"
       }`}
     >
       {featured && (
@@ -27,7 +27,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       <p className="mt-3 flex-1 text-sm leading-relaxed text-ivory-muted">
         {service.body}
       </p>
-      <p className="mt-8 flex items-baseline gap-2 border-t border-white/10 pt-6">
+      <p className="mt-8 flex items-baseline gap-2 border-t border-line/10 pt-6">
         <span className={`font-editorial text-4xl ${featured ? "text-accent" : "text-ivory"}`}>
           {service.fee}
         </span>
@@ -43,7 +43,7 @@ export function Services() {
   const [featured, ...rest] = SERVICES;
   return (
     <section id="services" className="scroll-mt-20 bg-coal">
-      <div className="mx-auto max-w-content px-6 py-24 md:px-16 md:py-36">
+      <div className="mx-auto max-w-content px-6 py-16 md:px-16 md:py-24">
         <SectionHeading
           eyebrow="Services & fees"
           title={
@@ -74,14 +74,14 @@ export function Services() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="mt-10 flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-coal-soft/50 px-8 py-6">
+          <div className="mt-10 flex flex-wrap items-center gap-3 rounded-2xl border border-line/10 bg-coal-soft/50 px-8 py-6">
             <p className="mr-2 text-[11px] font-display font-semibold uppercase tracking-label text-accent">
               Also available
             </p>
             {ALSO_OFFERED.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-white/15 px-4 py-2 text-xs text-ivory-muted"
+                className="rounded-full border border-line/15 px-4 py-2 text-xs text-ivory-muted"
               >
                 {item}
               </span>

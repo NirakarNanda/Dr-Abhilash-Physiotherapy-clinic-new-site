@@ -3,12 +3,12 @@ import { CLINIC, NAV_LINKS } from "@/content/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#07080A]">
+<footer className="border-t border-line/10 bg-coal">
       <div className="mx-auto max-w-content px-6 py-16 md:px-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <a href="#top" className="flex items-center gap-3">
-              <span className="relative block h-11 w-11 overflow-hidden rounded-full ring-1 ring-white/15">
+              <span className="relative block h-11 w-11 overflow-hidden rounded-full ring-1 ring-line/15">
                 <Image
                   src="/logo-emblem.png"
                   alt="Bijayalakshmi Physiotherapy Clinic emblem"
@@ -76,7 +76,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-8 text-[11px] leading-relaxed text-ivory-faint/70 md:flex-row md:items-center md:justify-between">
+        <div className="mt-14 flex flex-col gap-3 border-t border-line/10 pt-8 text-[11px] leading-relaxed text-ivory-faint/70 md:flex-row md:items-center md:justify-between">
           <p>
             © {new Date().getFullYear()} {CLINIC.legalName}. All rights reserved.
           </p>

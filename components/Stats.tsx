@@ -11,8 +11,8 @@ const STATS = [
 
 export function Stats() {
   return (
-    <section className="border-y border-white/10 bg-coal-soft/60">
-      <div className="mx-auto grid max-w-content grid-cols-1 divide-y divide-white/10 px-6 sm:grid-cols-3 sm:divide-x sm:divide-y-0 md:px-16">
+    <section className="border-y border-line/10 bg-coal-soft/60">
+      <div className="mx-auto grid max-w-content grid-cols-1 divide-y divide-line/10 px-6 sm:grid-cols-3 sm:divide-x sm:divide-y-0 md:px-16">
         {STATS.map((s, i) => (
           <div key={s.label} className="px-2 py-10 md:py-14">
             <Reveal delay={i * 0.08}>

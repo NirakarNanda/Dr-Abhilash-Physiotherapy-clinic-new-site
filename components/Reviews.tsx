@@ -25,8 +25,8 @@ function Stars() {
 
 export function Reviews() {
   return (
-    <section id="reviews" className="scroll-mt-20 border-y border-white/10 bg-coal-soft/40">
-      <div className="mx-auto max-w-content px-6 py-24 md:px-16 md:py-36">
+    <section id="reviews" className="scroll-mt-20 border-y border-line/10 bg-coal-soft/40">
+      <div className="mx-auto max-w-content px-6 py-16 md:px-16 md:py-24">
         <SectionHeading
           eyebrow="Patient stories"
           title={
@@ -44,12 +44,12 @@ export function Reviews() {
               delay={0.06 * (i % 3)}
               className={i % 3 === 1 ? "lg:mt-10" : ""}
             >
-              <figure className="flex h-full flex-col rounded-2xl border border-white/10 bg-coal-card p-8 transition-colors duration-500 hover:border-accent/30">
+              <figure className="flex h-full flex-col rounded-2xl border border-line/10 bg-coal-card p-8 transition-colors duration-500 hover:border-accent/30">
                 <Stars />
                 <blockquote className="mt-5 flex-1 font-editorial text-lg leading-relaxed text-ivory">
                   “{r.quote}”
                 </blockquote>
-                <figcaption className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
+                <figcaption className="mt-6 flex items-center gap-3 border-t border-line/10 pt-5">
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/15 font-editorial text-sm text-accent">
                     {r.name.charAt(0)}
                   </span>

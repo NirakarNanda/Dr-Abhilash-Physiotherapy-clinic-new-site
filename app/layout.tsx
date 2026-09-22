@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Inter, Fraunces } from "next/font/google";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import "./globals.css";
 
 const display = Manrope({
@@ -41,17 +42,17 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${editorial.variable}`}
     >
       <head>
-        {/* Pre-paint theme for the /anatomy route: dark is the default on
-            every first visit. Inert on clinic pages (nothing else consumes
-            [data-theme]). */}
+        {/* Pre-paint theme: dark is the default on every first visit.
+            The stored choice ('hh-theme') drives both the clinic pages
+            and /anatomy through one shared ThemeProvider. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('meridian-theme');document.documentElement.dataset.theme=(t==='light'||t==='dark')?t:'dark';}catch(e){document.documentElement.dataset.theme='dark';}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('hh-theme');document.documentElement.dataset.theme=(t==='light'||t==='dark')?t:'dark';}catch(e){document.documentElement.dataset.theme='dark';}})();`,
           }}
         />
       </head>
       <body className="bg-coal font-body text-ivory antialiased">
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

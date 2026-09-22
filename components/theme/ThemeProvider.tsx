@@ -11,7 +11,7 @@ import {
 
 export type SiteTheme = "dark" | "light";
 
-const STORAGE_KEY = "meridian-theme";
+const STORAGE_KEY = "hh-theme";
 
 interface ThemeContextValue {
   theme: SiteTheme;

@@ -10,6 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        /* Site-wide theme tokens. coal/ivory/accent/line are CSS-variable
+           driven (rgb triplet + <alpha-value> so opacity modifiers keep
+           working) — :root holds the dark defaults, [data-theme="light"]
+           swaps them to the warm beige treatment. One toggle re-themes
+           the whole clinic site coherently. */
         bg: {
           DEFAULT: "#F7F5F0",
           secondary: "#ECE9E2",
@@ -19,19 +24,20 @@ const config: Config = {
           muted: "#77736C",
         },
         accent: {
-          DEFAULT: "#A8B7A1", // medical sage — primary accent, used sparingly
+          DEFAULT: "rgb(var(--site-accent) / <alpha-value>)", // medical sage — primary accent, used sparingly
           warm: "#C9A68B", // warm clay accent, rarer still
         },
         coal: {
-          DEFAULT: "#0A0B0D", // near-black canvas
-          soft: "#101214",
-          card: "#14171A",
+          DEFAULT: "rgb(var(--site-bg) / <alpha-value>)", // page canvas
+          soft: "rgb(var(--site-bg-soft) / <alpha-value>)",
+          card: "rgb(var(--site-card) / <alpha-value>)",
         },
         ivory: {
-          DEFAULT: "#F4F1EA",
-          muted: "#B4B0A6",
-          faint: "#8E8B83",
+          DEFAULT: "rgb(var(--site-ink) / <alpha-value>)", // primary text
+          muted: "rgb(var(--site-ink-muted) / <alpha-value>)",
+          faint: "rgb(var(--site-ink-faint) / <alpha-value>)",
         },
+        line: "rgb(var(--site-line) / <alpha-value>)", // hairline borders/dividers
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"], // Manrope — nav wordmarks, labels
