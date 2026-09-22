@@ -38,7 +38,7 @@ export function About() {
               <div className="relative mt-10 aspect-square max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-coal-card">
                 <Image
                   src="/logo-emblem.png"
-                  alt="Healing Here clinic emblem"
+                  alt="Bijayalakshmi Physiotherapy Clinic emblem"
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
                   className="object-cover"

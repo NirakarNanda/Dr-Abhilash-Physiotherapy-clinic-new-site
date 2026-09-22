@@ -25,9 +25,9 @@ const editorial = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Healing Here — Bijayalakshmi Physiotherapy Clinic | Dr. Abhilash Nanda",
+  title: "Bijayalakshmi Physiotherapy Clinic (Healing Here) | Dr. Abhilash Nanda (PT), Sonepur",
   description:
-    "Healing Here — personalized physiotherapy in Sonepur, Odisha by Dr. Abhilash Nanda (PT). Injury recovery, chronic pain management, sports rehabilitation and more.",
+    "Bijayalakshmi Physiotherapy Clinic (Healing Here) — personalized physiotherapy in Sonepur, Odisha by Dr. Abhilash Nanda (PT). Injury recovery, chronic pain management, sports rehabilitation and more.",
 };
 
 export default function RootLayout({

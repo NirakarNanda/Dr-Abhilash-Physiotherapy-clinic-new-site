@@ -2,7 +2,9 @@
    clinic's public listings (Google / top-rated.online) in Sept 2026. */
 
 export const CLINIC = {
-  brand: "Healing Here",
+  brand: "Bijayalakshmi Physiotherapy Clinic",
+  shortName: "Bijayalakshmi Physiotherapy",
+  nickname: "Healing Here",
   legalName: "Bijayalakshmi Physiotherapy Clinic",
   doctor: "Dr. Abhilash Nanda",
   doctorSuffix: "(PT)",
@@ -189,7 +191,7 @@ export const RESILIENCE: {
   eyebrow: "Frontline roots",
   titleA: "A Journey of",
   titleAccent: "Resilience",
-  lede: "Before Healing Here had walls, it had a frontline.",
+  lede: "Before the clinic had walls, it had a frontline.",
   panels: [
     {
       src: "/images/covid-internship.png",
@@ -200,8 +202,8 @@ export const RESILIENCE: {
     },
     {
       src: "/images/clinic-doctor.png",
-      alt: "Dr. Abhilash Nanda in his well-equipped Healing Here clinic",
-      tag: "Healing Here",
+      alt: "Dr. Abhilash Nanda in his well-equipped Bijayalakshmi Physiotherapy clinic",
+      tag: "The clinic",
       title: "The same discipline, every patient",
       body: "That frontline discipline now lives in a well-equipped clinic of his own — the same commitment to care, carried into every session with every patient who walks in.",
     },

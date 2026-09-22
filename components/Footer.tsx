@@ -11,7 +11,7 @@ export function Footer() {
               <span className="relative block h-11 w-11 overflow-hidden rounded-full ring-1 ring-white/15">
                 <Image
                   src="/logo-emblem.png"
-                  alt="Healing Here clinic emblem"
+                  alt="Bijayalakshmi Physiotherapy Clinic emblem"
                   fill
                   sizes="44px"
                   className="object-cover"
@@ -19,10 +19,10 @@ export function Footer() {
               </span>
               <span className="leading-none">
                 <span className="block font-display text-sm font-bold tracking-wide text-ivory">
-                  HEALING&nbsp;HERE
+                  BIJAYALAKSHMI
                 </span>
                 <span className="mt-1 block text-[10px] font-display uppercase tracking-label text-ivory-faint">
-                  {CLINIC.legalName}
+                  Physiotherapy Clinic
                 </span>
               </span>
             </a>

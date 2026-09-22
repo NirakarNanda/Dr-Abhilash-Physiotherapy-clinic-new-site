@@ -40,12 +40,12 @@
 [data-theme="light"] {
   color-scheme: light;
 
-  --theme-bg: #f1ece1;
+  --theme-bg: #e2d7bd;
   --theme-ink: #201c15;
-  --theme-muted: #6e675b;
-  --theme-faint: #8a8272;
-  --theme-label: #2b251b;
-  --theme-halo: rgba(241, 236, 225, 0.92);
+  --theme-muted: #5f5749;
+  --theme-faint: #7a6f5c;
+  --theme-label: #241e14;
+  --theme-halo: rgba(226, 215, 189, 0.92);
   --theme-spotlight: radial-gradient(
     ellipse 62% 52% at 50% 44%,
     rgba(143, 160, 138, 0.22),
@@ -54,14 +54,14 @@
   --theme-vignette: radial-gradient(
     ellipse 125% 105% at 50% 50%,
     transparent 60%,
-    rgba(122, 104, 74, 0.16) 100%
+    rgba(110, 92, 62, 0.18) 100%
   );
   --theme-grain-opacity: 0.035;
   --theme-track: rgba(32, 28, 21, 0.16);
   --theme-chip-border: rgba(32, 28, 21, 0.16);
   --theme-chip-bg: rgba(32, 28, 21, 0.045);
   --theme-chip-text: #4a443a;
-  --theme-credit: rgba(138, 130, 114, 0.85);
+  --theme-credit: rgba(130, 119, 100, 0.9);
   --theme-credit-hover: #4a443a;
   --theme-attribution-link: #4a443a;
 }

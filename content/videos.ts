@@ -5,7 +5,7 @@
  * etc.). When they are ready, drop entries into the VIDEOS array below —
  * no structural changes needed anywhere else:
  *
- *   { id: "intro", title: "Welcome to Healing Here", url: "https://www.youtube.com/watch?v=XXXX" }
+ *   { id: "intro", title: "Welcome to Bijayalakshmi Physiotherapy Clinic", url: "https://www.youtube.com/watch?v=XXXX" }
  *
  * Supported `url` forms: YouTube watch / share / shorts / embed URLs and
  * bare 11-char video IDs, plus direct .mp4 links. Thumbnails are optional;
@@ -29,7 +29,7 @@ export const VIDEOS: VideoEntry[] = [
   // Example (uncomment and fill in when the videos arrive):
   // {
   //   id: "clinic-tour",
-  //   title: "A tour of Healing Here",
+  //   title: "A tour of Bijayalakshmi Physiotherapy Clinic",
   //   description: "Walk through the clinic with Dr. Abhilash Nanda.",
   //   url: "https://www.youtube.com/watch?v=REPLACE_ME",
   // },

@@ -22,11 +22,11 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-content items-center justify-between px-5 md:h-[72px] md:px-10">
-        <a href="#top" className="flex items-center gap-3" aria-label="Healing Here — home">
+        <a href="#top" className="flex items-center gap-3" aria-label="Bijayalakshmi Physiotherapy Clinic — home">
           <span className="relative block h-10 w-10 overflow-hidden rounded-full ring-1 ring-white/15">
             <Image
               src="/logo-emblem.png"
-              alt="Healing Here clinic emblem"
+              alt="Bijayalakshmi Physiotherapy Clinic emblem"
               fill
               sizes="40px"
               className="object-cover"
@@ -35,7 +35,7 @@ export function Navbar() {
           </span>
           <span className="leading-none">
             <span className="block font-display text-sm font-bold tracking-wide text-ivory">
-              HEALING&nbsp;HERE
+              BIJAYALAKSHMI
             </span>
             <span className="mt-1 block text-[10px] font-display uppercase tracking-label text-ivory-faint">
               Physiotherapy Clinic

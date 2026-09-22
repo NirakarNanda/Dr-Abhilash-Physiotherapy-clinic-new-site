@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { useTheme } from "@/components/theme/ThemeProvider";
 
 const LINKS = [
-  { label: "Healing Here", href: "/" },
+  { label: "Clinic", href: "/" },
   { label: "Anatomy", href: "#anatomy" },
   { label: "Services", href: "/#services" },
   { label: "Reviews", href: "/#reviews" },
@@ -55,11 +56,25 @@ export function AnatomyNavbar() {
       <nav className="mx-auto flex h-16 max-w-content items-center justify-between px-6 md:px-16">
         <a
           href="#top"
-          className={`font-display text-sm tracking-wide transition-colors duration-300 ${
-            darkChrome ? "text-[#F4F1EA]" : "text-ink"
-          }`}
+          aria-label="Bijayalakshmi Physiotherapy Clinic — 3D anatomy"
+          className="flex items-center gap-3"
         >
-          MERIDIAN&nbsp;PT
+          <span className="relative block h-8 w-8 overflow-hidden rounded-full">
+            <Image
+              src="/logo-emblem.png"
+              alt="Bijayalakshmi Physiotherapy Clinic emblem"
+              fill
+              sizes="32px"
+              className="object-cover"
+            />
+          </span>
+          <span
+            className={`font-display text-sm font-semibold tracking-wide transition-colors duration-300 ${
+              darkChrome ? "text-[#F4F1EA]" : "text-ink"
+            }`}
+          >
+            BIJAYALAKSHMI
+          </span>
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
