@@ -171,10 +171,48 @@ export const REVIEWS: Review[] = [
   },
 ];
 
+export interface ResiliencePanel {
+  src: string;
+  alt: string;
+  tag: string;
+  title: string;
+  body: string;
+}
+
+export const RESILIENCE: {
+  eyebrow: string;
+  titleA: string;
+  titleAccent: string;
+  lede: string;
+  panels: ResiliencePanel[];
+} = {
+  eyebrow: "Frontline roots",
+  titleA: "A Journey of",
+  titleAccent: "Resilience",
+  lede: "Before Healing Here had walls, it had a frontline.",
+  panels: [
+    {
+      src: "/images/covid-internship.png",
+      alt: "Dr. Abhilash Nanda in full PPE during his COVID-19 internship",
+      tag: "Peak COVID-19",
+      title: "Internship on the frontline",
+      body: "In the midst of the pandemic, Dr. Abhilash Nanda undertook his internship at Sum Ultimate, Bhubaneswar — specializing in COVID-19 rehabilitation and managing complex recovery cases when it mattered most.",
+    },
+    {
+      src: "/images/clinic-doctor.png",
+      alt: "Dr. Abhilash Nanda in his well-equipped Healing Here clinic",
+      tag: "Healing Here",
+      title: "The same discipline, every patient",
+      body: "That frontline discipline now lives in a well-equipped clinic of his own — the same commitment to care, carried into every session with every patient who walks in.",
+    },
+  ],
+};
+
 export const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Treatments", href: "#treatments" },
   { label: "About", href: "#about" },
+  { label: "Resilience", href: "#resilience" },
   { label: "Reviews", href: "#reviews" },
   { label: "Our Videos", href: "#videos" },
   { label: "Visit", href: "#visit" },
